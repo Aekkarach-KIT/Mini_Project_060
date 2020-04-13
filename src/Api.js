@@ -35,7 +35,7 @@ class Api {
     itemsPerPage = 12,
     usePriceFilter = "false",
     minPrice = 0,
-    maxPrice = 1000,
+    maxPrice = 3000,
     page = 1
   }) {
     
@@ -74,7 +74,7 @@ class Api {
         data = data.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
         resolve({ data, totalLength });
-      }, 500);
+      }, 200);
     });
   }
 }
