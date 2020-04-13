@@ -97,7 +97,7 @@ const sampleProducts = [
   {
     id: 9,
     name: "CPU AMD AM4 RYZEN7 3700X",
-    category: "CPU",
+    category: "Case",
     price: 332.93,
     description: "Higher performance. Incredible technology. Intelligent Ryzen™ processors just got even smarter.",
     popular: true,
@@ -148,7 +148,7 @@ const sampleProducts = [
   {
     id: 13,
     name: "CPU INTEL CORE I5 - 8600",
-    categories: "CPU",
+    categories: "Mainboard",
     price: 202.20,
     description:
       "Higher performance. Incredible technology. Intelligent Ryzen™ processors just got even smarter.",
@@ -314,38 +314,7 @@ const categories = [
     name: "Mainboard",
     icon: "memory"
   },
-  {
-    name: "VGA Card",
-    icon: "menu_book"
-  },
-  {
-    name: "Memory",
-    icon: "computer"
-  },
-  {
-    name: "Harddisk",
-    icon: "computer"
-  },
-  {
-    name: "Solid State Drive",
-    icon: "computer"
-  },
-  {
-    name: "Power Supply",
-    icon: "computer"
-  },
-  {
-    name: "Case",
-    icon: "computer"
-  },
-  {
-    name: "CPU Cooler",
-    icon: "computer"
-  },
-  {
-    name: "Monitor",
-    icon: "computer"
-  }
+  
 
 ];
 

@@ -16,7 +16,7 @@ class ConnectedItem extends Component {
   render() {
     return (
       <Card
-        style={{ width: 200, height: 270, margin: 10, display: "inline-block" }}
+        style={{ width: 210, height: 270, margin: 10,marginLeft:20, display: "inline-block" }}
       >
         <CardActionArea
           onClick={() => {
@@ -58,7 +58,7 @@ class ConnectedItem extends Component {
             {" "}
             Details
           </Button>
-          <Tooltip title="Add to cart">
+          <Tooltip title="Add item">
             <IconButton
               size="small"
               onClick={e => {
