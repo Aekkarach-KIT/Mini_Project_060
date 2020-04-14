@@ -4,6 +4,11 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./Redux/Store";
+import config from './config';
+import firebase from 'firebase/app'
+
+if(firebase.apps.length === 0)
+    firebase.initializeApp(config)
 
 
 let app = (
