@@ -13,7 +13,6 @@ import {
   toggleMenu,
   logout
 } from "../../Redux/Actions";
-import cartImage from "../../Images/logo2.png";
 import Auth from "../../Auth";
 import { categories } from "../../Data";
 import Person from "@material-ui/icons/PersonOutline";
@@ -53,7 +52,7 @@ class ConnectedHeader extends Component {
     return (
       <AppBar
         position="static"
-        style={{ backgroundColor: "#FAFAFB", padding: 10 }}
+        style={{ backgroundColor: "#12c2e9", padding: 10 }}
       >
         <Toolbar>
           <div className="left-part">
@@ -64,13 +63,11 @@ class ConnectedHeader extends Component {
             >
               <MenuIcon size="medium" />
             </IconButton>
-
-            <img
-              src={cartImage}
-              alt={"Logo"}
-              style={{ marginLeft: 10 }}
-
-            />
+              <div>
+              PSU SOFTWARE ONLINE
+              </div>
+            
+    
             <TextField
               label="Search items"
               value={this.state.searchTerm}

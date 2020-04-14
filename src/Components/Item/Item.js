@@ -16,7 +16,7 @@ class ConnectedItem extends Component {
   render() {
     return (
       <Card
-        style={{ width: 210, height: 270, margin: 10,marginLeft:20, display: "inline-block" }}
+        style={{ width: 250, height: 330, margin: 10,marginLeft:25, display: "inline-block" }}
       >
         <CardActionArea
           onClick={() => {
@@ -24,7 +24,7 @@ class ConnectedItem extends Component {
           }}
         >
           <CardMedia
-            style={{ height: 140 }}
+            style={{ height: 200}}
             image={this.props.item.imageUrls[0]}
           />
           <CardContent style={{ height: 50 }}>
@@ -39,8 +39,8 @@ class ConnectedItem extends Component {
             >
               {this.props.item.name}
             </div>
-            <div style={{ margin: 5 }}>Price: {this.props.item.price} $</div>
-            <div style={{ color: "#1a9349", fontWeight: "bold", margin: 5 }}>
+            <div style={{ margin: 5,color: "#006400",fontSize:13 }}>Price: {this.props.item.price} $</div>
+            <div style={{ color: "#f64f59", fontWeight: "bold", margin: 5,fontSize:17 }}>
               {this.props.item.popular && "Popular"}
             </div>
           </CardContent>
@@ -50,7 +50,7 @@ class ConnectedItem extends Component {
         >
           <Button
             size="small"
-            style={{ marginRight: 60 }}
+            style={{ marginRight: 60 ,fontSize: 14}}
             onClick={() => {
               this.props.history.push("/details/" + this.props.item.id);
             }}

@@ -81,7 +81,10 @@ class ConnectedDetails extends Component {
           style={{
             marginBottom: 20,
             marginTop: 10,
-            fontSize: 22
+            fontSize: 25,
+            color:"black"
+            
+
           }}
         >
           {this.state.item.name}
@@ -109,7 +112,7 @@ class ConnectedDetails extends Component {
               Price: {this.state.item.price} $
             </div>
             {this.state.item.popular && (
-              <div style={{ fontSize: 14, marginTop: 5, color: "#228B22" }}>
+              <div style={{ fontSize: 14, marginTop: 5, color: "#f64f59" }}>
                 (Popular product)
               </div>
             )}
@@ -148,6 +151,7 @@ class ConnectedDetails extends Component {
             marginTop: 20,
             marginBottom: 20,
             fontSize: 22
+            
           }}
         >
           Product Description
@@ -155,8 +159,11 @@ class ConnectedDetails extends Component {
         <div
           style={{
             maxHeight: 200,
-            fontSize: 13,
-            overflow: "auto"
+            fontSize: 15,
+            overflow:"auto",
+            
+            
+            
           }}
         >
           {this.state.item.description ? this.state.item.description : "Not available"}
@@ -173,7 +180,7 @@ class ConnectedDetails extends Component {
           Related Items
         </div>
         {
-          this.state.relatedItems.slice(0, 3).map(x => {
+          this.state.relatedItems.slice(0, 5).map(x => {
             return <Item key={x.id} item={x} />;
           })
         }

@@ -59,17 +59,6 @@ class ConnectedOrder extends Component {
           Total price: {totalPrice} $
         </div>
         <Button
-          color="primary"
-          variant="outlined"
-          disabled={totalPrice === 0}
-          onClick={() => {
-            console.log("purchased");
-          }}
-          style={{ margin: 5, marginTop: 30 }}
-        >
-          Purchase
-        </Button>
-        <Button
           color="secondary"
           variant="outlined"
           disabled={totalPrice === 0}
