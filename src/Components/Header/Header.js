@@ -64,7 +64,7 @@ class ConnectedHeader extends Component {
               <MenuIcon size="medium" />
             </IconButton>
               <div>
-              PSU SOFTWARE ONLINE
+              PSU HARDWARE ONLINE
               </div>
             
     
