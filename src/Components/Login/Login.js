@@ -35,11 +35,12 @@ class Login extends Component {
       <div className="login">
         {this.state.isSignedIn ? (
           <span>
-            <div>Signed In!</div>
-            <button className="btn" onClick={() => firebase.auth().signOut()}>Sign out!</button>
-            <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+            <p className="marquee"><span> Welcome To PSU HARDWARE ONLINE</span></p>
+            <button className="button" onClick={() => firebase.auth().signOut()}>Sign out!</button>
+            <h1 className="user">!! Welcome {firebase.auth().currentUser.displayName} !!</h1>
             <img 
               alt="profile pic"
+              width="200px"
               src={firebase.auth().currentUser.photoURL}
             />
           </span>

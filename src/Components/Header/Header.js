@@ -11,17 +11,15 @@ import { connect } from "react-redux";
 import {
   showCartDlg,
   toggleMenu,
-  logout
 } from "../../Redux/Actions";
-import Auth from "../../Auth";
 import { categories } from "../../Data";
-import Person from "@material-ui/icons/PersonOutline";
-import Avatar from "@material-ui/core/Avatar";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+
+
 
 const mapStateToProps = state => {
   return {
@@ -110,7 +108,6 @@ class ConnectedHeader extends Component {
             </Button>
           </div>
           <div className="right-part">
-            {!this.props.loggedInUser ? (
               <Button
                 variant="outlined"
                 style={{ marginRight: 20 }}
@@ -121,16 +118,6 @@ class ConnectedHeader extends Component {
               >
                 Log in
               </Button>
-            ) : (
-                <Avatar
-                  onClick={event => {
-                    this.setState({ anchorEl: event.currentTarget });
-                  }}
-                  style={{ backgroundColor: "#3f51b5", marginRight: 10 }}
-                >
-                  <Person />
-                </Avatar>
-              )}
             <IconButton
               aria-label="Cart"
               onClick={() => {
@@ -156,17 +143,7 @@ class ConnectedHeader extends Component {
               >
                 Checkout page
               </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  Auth.signout(() => {
-                    this.props.dispatch(logout());
-                    this.props.history.push("/");
-                  });
-                  this.setState({ anchorEl: null });
-                }}
-              >
-                Logout
-              </MenuItem>
+             
             </Menu>
           </div>
         </Toolbar>
