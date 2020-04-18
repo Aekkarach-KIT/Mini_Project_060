@@ -1,17 +1,17 @@
-import React, { Component } from "react"
-import firebase from "firebase"
-import "./Login.css"
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import React, { Component } from 'react'
+import firebase from 'firebase'
+import './Login.css'
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
 firebase.initializeApp({
-  apiKey: "AIzaSyBj5Z4wVpkn7YYBbRHuefLQku5Yr9WDHbs",
-  authDomain: "miniproject-060.firebaseapp.com"
+  apiKey: 'AIzaSyBj5Z4wVpkn7YYBbRHuefLQku5Yr9WDHbs',
+  authDomain: 'miniproject-060.firebaseapp.com'
 })
 
 class Login extends Component {
   state = { isSignedIn: false }
   uiConfig = {
-    signInFlow: "popup",
+    signInFlow: 'popup',
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
@@ -26,21 +26,30 @@ class Login extends Component {
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ isSignedIn: !!user })
-      console.log("user", user)
+      console.log('user', user)
     })
   }
 
-  render() {
+  render () {
     return (
-      <div className="login">
+      <div className='login'>
         {this.state.isSignedIn ? (
           <span>
-            <p className="marquee"><span> Welcome To PSU HARDWARE ONLINE</span></p>
-            <button className="button" onClick={() => firebase.auth().signOut()}>Sign out!</button>
-            <h1 className="user">!! Welcome {firebase.auth().currentUser.displayName} !!</h1>
-            <img 
-              alt="profile pic"
-              width="200px"
+            <p className='marquee'>
+              <span> Welcome To PSU HARDWARE ONLINE</span>
+            </p>
+            <button
+              className='button'
+              onClick={() => firebase.auth().signOut()}
+            >
+              Sign out!
+            </button>
+            <h1 className='user'>
+              !! Welcome {firebase.auth().currentUser.displayName} !!
+            </h1>
+            <img
+              alt='profile pic'
+              width='200px'
               src={firebase.auth().currentUser.photoURL}
             />
           </span>

@@ -1,38 +1,35 @@
-import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { addItemInCart } from "../../Redux/Actions";
-import Api from "../../Api";
-import Item from "../Item/Item";
-import { connect } from "react-redux";
-import TextField from "@material-ui/core/TextField";
-
-
-
+import React, { Component } from 'react'
+import Button from '@material-ui/core/Button'
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import { addItemInCart } from '../../Redux/Actions'
+import Api from '../../Api'
+import Item from '../Item/Item'
+import { connect } from 'react-redux'
+import TextField from '@material-ui/core/TextField'
 
 class ConnectedDetails extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    this.isCompMounted = false;
+    this.isCompMounted = false
 
     this.state = {
       relatedItems: [],
       quantity: 1,
       item: null,
       itemLoading: false
-    };
+    }
   }
 
-  async fetchProductAndRelatedItems(productId) {
-    this.setState({ itemLoading: true });
+  async fetchProductAndRelatedItems (productId) {
+    this.setState({ itemLoading: true })
 
-    let item = await Api.getItemUsingID(productId);
+    let item = await Api.getItemUsingID(productId)
 
     let relatedItems = await Api.searchItems({
-      category: item.category,
-    });
+      category: item.category
+    })
 
     // Make sure this component is still mounted before we set state..
     if (this.isCompMounted) {
@@ -40,39 +37,34 @@ class ConnectedDetails extends Component {
         item,
         quantity: 1,
         relatedItems: relatedItems.data.filter(x => x.id !== item.id),
-        itemLoading: false,
-      });
+        itemLoading: false
+      })
     }
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-
+  componentDidUpdate (prevProps, prevState, snapshot) {
     // If ID of product changed in URL, refetch details for that product
     if (this.props.match.params.id !== prevProps.match.params.id) {
-      this.fetchProductAndRelatedItems(this.props.match.params.id);
+      this.fetchProductAndRelatedItems(this.props.match.params.id)
     }
-
   }
 
-
-  componentDidMount() {
-    this.isCompMounted = true;
-    this.fetchProductAndRelatedItems(this.props.match.params.id);
+  componentDidMount () {
+    this.isCompMounted = true
+    this.fetchProductAndRelatedItems(this.props.match.params.id)
   }
 
-  componentWillUnmount() {
-    this.isCompMounted = false;
+  componentWillUnmount () {
+    this.isCompMounted = false
   }
 
-
-
-  render() {
+  render () {
     if (this.state.itemLoading) {
-      return <CircularProgress className="circular" />;
+      return <CircularProgress className='circular' />
     }
 
     if (!this.state.item) {
-      return null;
+      return null
     }
 
     return (
@@ -82,65 +74,68 @@ class ConnectedDetails extends Component {
             marginBottom: 20,
             marginTop: 10,
             fontSize: 25,
-            color:"black"
-            
-
+            color: 'black'
           }}
         >
           {this.state.item.name}
         </div>
-        <div style={{ display: "flex" }}>
-          <img src={this.state.item.imageUrls[0]} alt="" width={250} height={250}
+        <div style={{ display: 'flex' }}>
+          <img
+            src={this.state.item.imageUrls[0]}
+            alt=''
+            width={250}
+            height={250}
             style={{
-              border: "1px solid lightgray",
-              borderRadius: "5px",
-              objectFit: "cover"
-            }} />
+              border: '1px solid lightgray',
+              borderRadius: '5px',
+              objectFit: 'cover'
+            }}
+          />
           <div
             style={{
               flex: 1,
               marginLeft: 20,
-              display: "flex",
-              flexDirection: "column"
+              display: 'flex',
+              flexDirection: 'column'
             }}
           >
-
-            <div style={{
-              fontSize: 16,
-
-            }}>
-              Price: {this.state.item.price} $
+            <div
+              style={{
+                fontSize: 16
+              }}
+            >
+              ราคา: {this.state.item.price} บาท
             </div>
             {this.state.item.popular && (
-              <div style={{ fontSize: 14, marginTop: 5, color: "#f64f59" }}>
+              <div style={{ fontSize: 14, marginTop: 5, color: '#f64f59' }}>
                 (Popular product)
               </div>
             )}
 
             <TextField
-              type="number"
+              type='number'
               value={this.state.quantity}
               style={{ marginTop: 20, marginBottom: 10, width: 70 }}
-              label="Quantity"
+              label='จำนวน'
               inputProps={{ min: 1, max: 10, step: 1 }}
               onChange={e => {
-                this.setState({ quantity: parseInt(e.target.value) });
+                this.setState({ quantity: parseInt(e.target.value) })
               }}
             />
             <Button
               style={{ width: 170, marginTop: 5 }}
-              color="primary"
-              variant="outlined"
+              color='primary'
+              variant='outlined'
               onClick={() => {
                 this.props.dispatch(
                   addItemInCart({
                     ...this.state.item,
                     quantity: this.state.quantity
                   })
-                );
+                )
               }}
             >
-              Add to Cart <AddShoppingCartIcon style={{ marginLeft: 5 }} />
+              เพิ่มใส่ตะกร้า <AddShoppingCartIcon style={{ marginLeft: 5 }} />
             </Button>
           </div>
         </div>
@@ -151,22 +146,20 @@ class ConnectedDetails extends Component {
             marginTop: 20,
             marginBottom: 20,
             fontSize: 22
-            
           }}
         >
-          Product Description
+          รีวิวสินค้า
         </div>
         <div
           style={{
             maxHeight: 200,
             fontSize: 15,
-            overflow:"auto",
-            
-            
-            
+            overflow: 'auto'
           }}
         >
-          {this.state.item.description ? this.state.item.description : "Not available"}
+          {this.state.item.description
+            ? this.state.item.description
+            : 'Not available'}
         </div>
 
         {/* Relateditems */}
@@ -177,17 +170,15 @@ class ConnectedDetails extends Component {
             fontSize: 22
           }}
         >
-          Related Items
+          สินค้าที่ตรงกัน
         </div>
-        {
-          this.state.relatedItems.slice(0, 5).map(x => {
-            return <Item key={x.id} item={x} />;
-          })
-        }
-      </div >
-    );
+        {this.state.relatedItems.slice(0, 5).map(x => {
+          return <Item key={x.id} item={x} />
+        })}
+      </div>
+    )
   }
 }
 
-let Details = connect()(ConnectedDetails);
-export default Details;
+let Details = connect()(ConnectedDetails)
+export default Details

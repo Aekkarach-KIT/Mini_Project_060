@@ -25,14 +25,14 @@ class ConnectedOrder extends Component {
     return (
       <div style={{ padding: 10 }}>
         <div style={{ fontSize: 24, marginTop: 10 }}>
-          Order summary
+          รายการสินค้า
         </div>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Item name</TableCell>
-              <TableCell>Price</TableCell>
-              <TableCell>Quantity</TableCell>
+              <TableCell>สินค้า</TableCell>
+              <TableCell>ราคา</TableCell>
+              <TableCell>จำนวน</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -56,7 +56,7 @@ class ConnectedOrder extends Component {
             fontSize: 22
           }}
         >
-          Total price: {totalPrice} $
+          ยอดรวม : {totalPrice} บาท
         </div>
         <Button
           color="secondary"
@@ -67,7 +67,7 @@ class ConnectedOrder extends Component {
           }}
           style={{ margin: 5, marginTop: 30 }}
         >
-          Discard
+          ละทิ้ง
         </Button>
       </div>
     );

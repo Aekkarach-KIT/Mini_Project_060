@@ -1,32 +1,27 @@
-import React, { Component } from "react";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import "./Header.css";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Badge from "@material-ui/core/Badge";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import {
-  showCartDlg,
-  toggleMenu,
-} from "../../Redux/Actions";
-import { categories } from "../../Data";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-
-
+import React, { Component } from 'react'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import './Header.css'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import Badge from '@material-ui/core/Badge'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { showCartDlg, toggleMenu } from '../../Redux/Actions'
+import { categories } from '../../Data'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import Select from '@material-ui/core/Select'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
 
 const mapStateToProps = state => {
   return {
     nrOfItemsInCard: state.cartItems.length,
     loggedInUser: state.loggedInUser
-  };
-};
+  }
+}
 
 // Option items for product categories.
 const categoryOptions = categories.map(x => {
@@ -34,43 +29,40 @@ const categoryOptions = categories.map(x => {
     <MenuItem key={x.name} value={x.name}>
       {x.name}
     </MenuItem>
-  );
-});
+  )
+})
 
 class ConnectedHeader extends Component {
   state = {
-    searchTerm: "",
+    searchTerm: '',
     anchorEl: null,
     categoryFilterValue: categories[0].name
-  };
+  }
 
-  render() {
-    let { anchorEl } = this.state;
+  render () {
+    let { anchorEl } = this.state
 
     return (
       <AppBar
-        position="static"
-        style={{ backgroundColor: "#12c2e9", padding: 10 }}
+        position='static'
+        style={{ backgroundColor: '#12c2e9', padding: 10 }}
       >
         <Toolbar>
-          <div className="left-part">
+          <div className='left-part'>
             <IconButton
               onClick={() => {
-                this.props.dispatch(toggleMenu());
+                this.props.dispatch(toggleMenu())
               }}
             >
-              <MenuIcon size="medium" />
+              <MenuIcon size='medium' />
             </IconButton>
-              <div>
-              PSU HARDWARE ONLINE
-              </div>
-            
-    
+            <div>PSU HARDWARE ONLINE</div>
+
             <TextField
-              label="Search items"
+              label='ค้นหาสินค้า'
               value={this.state.searchTerm}
               onChange={e => {
-                this.setState({ searchTerm: e.target.value });
+                this.setState({ searchTerm: e.target.value })
               }}
               style={{ marginLeft: 30, width: 250, marginBottom: 15 }}
             />
@@ -84,7 +76,7 @@ class ConnectedHeader extends Component {
                 }
               }}
               onChange={e => {
-                this.setState({ categoryFilterValue: e.target.value });
+                this.setState({ categoryFilterValue: e.target.value })
               }}
             >
               {categoryOptions}
@@ -92,39 +84,39 @@ class ConnectedHeader extends Component {
 
             <Button
               style={{ marginLeft: 20 }}
-              variant="outlined"
-              color="primary"
+              variant='outlined'
+              color='primary'
               onClick={() => {
                 this.props.history.push(
-                  "/?category=" +
-                  this.state.categoryFilterValue +
-                  "&term=" +
-                  this.state.searchTerm
-                );
+                  '/?category=' +
+                    this.state.categoryFilterValue +
+                    '&term=' +
+                    this.state.searchTerm
+                )
               }}
             >
-              {" "}
-              Search
+              {' '}
+             ค้นหา
             </Button>
           </div>
-          <div className="right-part">
-              <Button
-                variant="outlined"
-                style={{ marginRight: 20 }}
-                color="primary"
-                onClick={() => {
-                  this.props.history.push("/login");
-                }}
-              >
-                Log in
-              </Button>
-            <IconButton
-              aria-label="Cart"
+          <div className='right-part'>
+            <Button
+              variant='outlined'
+              style={{ marginRight: 20 }}
+              color='primary'
               onClick={() => {
-                this.props.dispatch(showCartDlg(true));
+                this.props.history.push('/login')
               }}
             >
-              <Badge badgeContent={this.props.nrOfItemsInCard} color="primary">
+              ลงชื่อเข้าใช้
+            </Button>
+            <IconButton
+              aria-label='Cart'
+              onClick={() => {
+                this.props.dispatch(showCartDlg(true))
+              }}
+            >
+              <Badge badgeContent={this.props.nrOfItemsInCard} color='primary'>
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
@@ -132,25 +124,24 @@ class ConnectedHeader extends Component {
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
               onClose={() => {
-                this.setState({ anchorEl: null });
+                this.setState({ anchorEl: null })
               }}
             >
               <MenuItem
                 onClick={() => {
-                  this.setState({ anchorEl: null });
-                  this.props.history.push("/order");
+                  this.setState({ anchorEl: null })
+                  this.props.history.push('/order')
                 }}
               >
                 Checkout page
               </MenuItem>
-             
             </Menu>
           </div>
         </Toolbar>
       </AppBar>
-    );
+    )
   }
 }
 
-const Header = withRouter(connect(mapStateToProps)(ConnectedHeader));
-export default Header;
+const Header = withRouter(connect(mapStateToProps)(ConnectedHeader))
+export default Header

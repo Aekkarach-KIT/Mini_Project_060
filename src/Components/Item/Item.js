@@ -39,7 +39,7 @@ class ConnectedItem extends Component {
             >
               {this.props.item.name}
             </div>
-            <div style={{ margin: 5,color: "#006400",fontSize:13 }}>Price: {this.props.item.price} $</div>
+            <div style={{ margin: 5,color: "#006400",fontSize:13 }}>ราคา: {this.props.item.price} บาท</div>
             <div style={{ color: "#f64f59", fontWeight: "bold", margin: 5,fontSize:17 }}>
               {this.props.item.popular && "Popular"}
             </div>
@@ -56,7 +56,7 @@ class ConnectedItem extends Component {
             }}
           >
             {" "}
-            Details
+            รายละเอียดสินค้า
           </Button>
           <Tooltip title="Add item">
             <IconButton

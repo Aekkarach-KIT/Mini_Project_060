@@ -1,32 +1,28 @@
-import React, { Component } from "react";
-import "./App.css";
-import Header from "./Components/Header/Header.js";
-import ProductList from "./Components/ProductList/ProductList";
-import { Switch, Route } from "react-router-dom";
-import Menu from "./Components/Menu/Menu";
-import CartDialog from "./Components/CartDialog/CartDialog";
-import Details from "./Components/Details/Details";
-import Order from "./Components/Order/Order";
-import Login from "./Components/Login/Login";
-
-
-
+import React, { Component } from 'react'
+import './App.css'
+import Header from './Components/Header/Header.js'
+import ProductList from './Components/ProductList/ProductList'
+import { Switch, Route } from 'react-router-dom'
+import Menu from './Components/Menu/Menu'
+import CartDialog from './Components/CartDialog/CartDialog'
+import Details from './Components/Details/Details'
+import Order from './Components/Order/Order'
+import Login from './Components/Login/Login'
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      
-      <div className="app">
+      <div className='app'>
         <Header />
-        <div className="app-body">
+        <div className='app-body'>
           <Menu />
-          <div className="content">
+          <div className='content'>
             <CartDialog />
             <Switch>
-              <Route path="/" exact component={ProductList} />
-              <Route path="/details/:id" component={Details} />
-              <Route path="/login" component={Login} />
-              <Route path="/order" component={Order} />
+              <Route path='/' exact component={ProductList} />
+              <Route path='/details/:id' component={Details} />
+              <Route path='/login' component={Login} />
+              <Route path='/order' component={Order} />
               <Route
                 component={() => (
                   <div style={{ padding: 20 }}>Page not found</div>
@@ -35,10 +31,9 @@ class App extends Component {
             </Switch>
           </div>
         </div>
-       
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

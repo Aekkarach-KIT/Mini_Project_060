@@ -1,15 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./Redux/Store";
-import config from './config';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './Redux/Store'
+import config from './config'
 import firebase from 'firebase/app'
 
-if(firebase.apps.length === 0)
-    firebase.initializeApp(config)
-
+if (firebase.apps.length === 0) firebase.initializeApp(config)
 
 let app = (
   <Provider store={store}>
@@ -17,8 +15,8 @@ let app = (
       <App />
     </BrowserRouter>
   </Provider>
-);
+)
 
-window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
+window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
-ReactDOM.render(app, document.getElementById("root"));
+ReactDOM.render(app, document.getElementById('root'))

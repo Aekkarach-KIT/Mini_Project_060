@@ -41,7 +41,7 @@ class PriceDialog extends Component {
               alignItems: "center"
             }}
           >
-            <DialogTitle>Enter price range</DialogTitle>
+            <DialogTitle>กำหนดราคาสินค้า</DialogTitle>
 
             <div style={{ display: "flex", padding: 20 }}>
               <TextField

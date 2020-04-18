@@ -28,8 +28,8 @@ class ProductsHeader extends Component {
       <React.Fragment>
         <span style={{ fontSize: 12, color: "gray", marginTop: 5 }}>
           {totalItemsCount +
-            " result" +
-            (totalItemsCount === 1 ? " " : "s ") +
+            " ผลลัพธ์" +
+            (totalItemsCount === 1 ? " " : " ") +
             (keyword ? "for " : "")}
         </span>
         {keyword && (
@@ -68,10 +68,10 @@ class ProductsHeader extends Component {
                 }}
               />
             }
-            label="Filter by price"
+            label="กรองสินค้าตามราคา"
           />
           {usePriceFilter && (
-            <Tooltip title="Click to change range" disableFocusListener>
+            <Tooltip title="คลิกเพื่อกำหนดราคา" disableFocusListener>
               <Button
                 variant="outlined"
                 style={{ marginRight: 20 }}
@@ -81,7 +81,7 @@ class ProductsHeader extends Component {
                   });
                 }}
               >
-                {minPrice + "$ - " + maxPrice + "$"}
+                {minPrice + "฿ - " + maxPrice + "฿"}
               </Button>
             </Tooltip>
           )}
@@ -91,8 +91,8 @@ class ProductsHeader extends Component {
               updateQueryString({ sortValue: e.target.value });
             }}
           >
-            <MenuItem value={"lh"}>Sort by price: low to high</MenuItem>
-            <MenuItem value={"hl"}>Sort by price: high to low</MenuItem>
+            <MenuItem value={"lh"}>เรียงตามราคา: ต่ำ ไป สูง</MenuItem>
+            <MenuItem value={"hl"}>เรียงตามราคา: สูง ไป ต่ำ</MenuItem>
           </Select>
         </div>
 
