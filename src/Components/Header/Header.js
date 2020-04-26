@@ -18,12 +18,10 @@ import Toolbar from '@material-ui/core/Toolbar'
 
 const mapStateToProps = state => {
   return {
-    nrOfItemsInCard: state.cartItems.length,
-    loggedInUser: state.loggedInUser
+    nrOfItemsInCard: state.cartItems.length
   }
 }
 
-// Option items for product categories.
 const categoryOptions = categories.map(x => {
   return (
     <MenuItem key={x.name} value={x.name}>
@@ -96,8 +94,11 @@ class ConnectedHeader extends Component {
               }}
             >
               {' '}
-             ค้นหา
+              ค้นหา
             </Button>
+          </div>
+          <div>
+          <p>Create by Aekkarach Kitkanna 6035512060</p>
           </div>
           <div className='right-part'>
             <Button
@@ -126,16 +127,7 @@ class ConnectedHeader extends Component {
               onClose={() => {
                 this.setState({ anchorEl: null })
               }}
-            >
-              <MenuItem
-                onClick={() => {
-                  this.setState({ anchorEl: null })
-                  this.props.history.push('/order')
-                }}
-              >
-                Checkout page
-              </MenuItem>
-            </Menu>
+            ></Menu>
           </div>
         </Toolbar>
       </AppBar>

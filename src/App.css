@@ -17,7 +17,9 @@ html, #root, body {
 }
 
 body {
-  font-family: Helvetica, Arial;
+  font-family: Arial, Helvetica, sans-serif;
+
+  
 }
 
 .app-body {

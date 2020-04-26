@@ -7,6 +7,7 @@ import store from './Redux/Store'
 import config from './config'
 import firebase from 'firebase/app'
 
+
 if (firebase.apps.length === 0) firebase.initializeApp(config)
 
 let app = (
