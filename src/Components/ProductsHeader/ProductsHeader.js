@@ -15,8 +15,7 @@ class ProductsHeader extends Component {
 
   render() {
     let { parsedQS, totalItemsCount, updateQueryString } = this.props;
-  
-    // Grab some values from the query string
+
     let usePriceFilter = parsedQS.usePriceFilter === "true";
     let minPrice = parsedQS.minPrice || 0;
     let maxPrice = parsedQS.maxPrice || 1000;
@@ -96,7 +95,7 @@ class ProductsHeader extends Component {
           </Select>
         </div>
 
-        {/* This is dialog which opens up for setting price filter */}
+
         <PriceDialog
           open={this.state.openPriceDialog}
           min={minPrice}

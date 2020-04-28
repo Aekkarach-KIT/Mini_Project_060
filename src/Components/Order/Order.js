@@ -16,14 +16,9 @@ const mapStateToProps = state => {
   }
 }
 
-// This component shows the items user checked out from the cart.
 class ConnectedOrder extends Component {
   onToken = (token, addresses) => {
-    // TODO: Send the token information and any other
-    // relevant information to your payment process
-    // server, wait for the response, and update the UI
-    // accordingly. How this is done is up to you. Using
-    // XHR, fetch, or a GraphQL mutation is typical.
+
   }
   render () {
     let totalPrice = this.props.checkedOutItems.reduce((accumulator, item) => {

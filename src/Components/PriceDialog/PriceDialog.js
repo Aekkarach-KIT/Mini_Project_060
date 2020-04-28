@@ -9,8 +9,6 @@ class PriceDialog extends Component {
     lastOpenedStatus: false,
   };
 
-
-  // Only when this dialog is opened, copy the prices to local state.
   static getDerivedStateFromProps(props, state) {
     if (props.open === true && state.lastOpenedStatus === false) {
       return {

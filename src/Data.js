@@ -1,4 +1,3 @@
-// Our product database.
 const sampleProducts = [
   {
     id: 1,
@@ -148,7 +147,7 @@ const sampleProducts = [
   }
 ]
 
-// List of item categories.
+
 const categories = [
   {
     name: 'All categories',
@@ -168,7 +167,7 @@ const categories = [
   }
 ]
 
-// Data for rendering menu.
+
 const dataForTheMenu = [
   { name: 'หน้าหลัก', url: '/', icon: 'home', id: 0 },
   {

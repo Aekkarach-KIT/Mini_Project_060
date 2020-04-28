@@ -10,11 +10,11 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { showCartDlg, toggleMenu } from '../../Redux/Actions'
 import { categories } from '../../Data'
-import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
+
 
 const mapStateToProps = state => {
   return {
@@ -38,8 +38,6 @@ class ConnectedHeader extends Component {
   }
 
   render () {
-    let { anchorEl } = this.state
-
     return (
       <AppBar
         position='static'
@@ -97,8 +95,9 @@ class ConnectedHeader extends Component {
               ค้นหา
             </Button>
           </div>
+ 
           <div>
-          <p>Create by Aekkarach Kitkanna 6035512060</p>
+            <p>Create by Aekkarach Kitkanna 6035512060</p>
           </div>
           <div className='right-part'>
             <Button
@@ -121,13 +120,6 @@ class ConnectedHeader extends Component {
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={() => {
-                this.setState({ anchorEl: null })
-              }}
-            ></Menu>
           </div>
         </Toolbar>
       </AppBar>

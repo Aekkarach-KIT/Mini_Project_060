@@ -31,7 +31,6 @@ class ConnectedDetails extends Component {
       category: item.category
     })
 
-    // Make sure this component is still mounted before we set state..
     if (this.isCompMounted) {
       this.setState({
         item,
@@ -43,7 +42,7 @@ class ConnectedDetails extends Component {
   }
 
   componentDidUpdate (prevProps, prevState, snapshot) {
-    // If ID of product changed in URL, refetch details for that product
+
     if (this.props.match.params.id !== prevProps.match.params.id) {
       this.fetchProductAndRelatedItems(this.props.match.params.id)
     }
@@ -140,7 +139,7 @@ class ConnectedDetails extends Component {
           </div>
         </div>
 
-        {/* Product description */}
+ 
         <div
           style={{
             marginTop: 20,
@@ -162,7 +161,6 @@ class ConnectedDetails extends Component {
             : 'Not available'}
         </div>
 
-        {/* Relateditems */}
         <div
           style={{
             marginTop: 20,

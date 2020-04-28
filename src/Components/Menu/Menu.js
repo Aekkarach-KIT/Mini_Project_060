@@ -129,7 +129,6 @@ class ConnectedMenu extends Component {
       >
         {/* Render our menu */}
         {this.renderMenu(this.state.dataForTheMenu)}
-    
       </div>
     )
   }

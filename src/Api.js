@@ -1,9 +1,5 @@
 import { sampleProducts } from "./Data";
 
-///
-//
-// Methods of this class are used to simulate calls to server.
-//
 class Api {
   getItemUsingID(id) {
     return new Promise((resolve, reject) => {
@@ -39,7 +35,7 @@ class Api {
     page = 1
   }) {
     
-    // Turn this into a boolean
+
     usePriceFilter = usePriceFilter === "true" && true;
     
     return new Promise((resolve, reject) => {
